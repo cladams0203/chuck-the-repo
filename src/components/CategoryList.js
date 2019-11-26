@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { CategoryCard } from './CategoryCard';
 
-export function CategoryList() {
+export function CategoryList(props) {
     const [categories, setCategories] =useState()
-    console.log(categories)
+    console.log(props)
     useEffect(() => {
         axios.get(`https://api.chucknorris.io/jokes/categories`)
             .then(response => {
@@ -18,7 +18,7 @@ export function CategoryList() {
 
         <div>
             {categories && categories.map((item, index) => {
-                return <CategoryCard item={item} key={index} />
+                return <CategoryCard item={item} key={index} history={props.history} setJoke={props.setJoke} />
             })}
         </div>
     )

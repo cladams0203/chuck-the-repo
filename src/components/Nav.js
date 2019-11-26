@@ -7,7 +7,7 @@ export function Nav(props) {
 
     return(
         <div>
-            <a>Category List</a>
+            <Link to='/category-list'>Category List</Link>
             <a>Fun Facts</a>
             <Link to='/'
                 onClick={() => {

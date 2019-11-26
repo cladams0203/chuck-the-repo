@@ -5,6 +5,7 @@ import { Search } from './components/Search';
 import { CategoryList } from './components/CategoryList';
 import { Joke } from './components/Joke';
 
+
 import './App.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <h1>Chuck Chuckles</h1>
       <Route path='/' render={(props) => <Nav {...props} setJoke={setJoke} />} />
       <Route path='/' component= {Search} />
-      <Route path='/category-list' component={CategoryList} />
+      <Route path='/category-list' render={(props) => <CategoryList {...props} setJoke={setJoke} />} />
       {joke && <Joke item={joke} />}
       
     </div>

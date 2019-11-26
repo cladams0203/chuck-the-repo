@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Joke } from './Joke'
 import { SearchList } from './SearchList';
 import { Route } from 'react-router-dom';
+import { Button } from './styles';
+
+
 export function Search(props) {
     const [form, setForm] = useState('')
     const [jokes, setJokes] = useState()
@@ -16,6 +19,7 @@ export function Search(props) {
                 axios.get(`https://api.chucknorris.io/jokes/search?query=${form}`)
                     .then(response => {
                         setJokes(response.data.result)
+                        setForm('')
                         props.history.push('/search')
                     })
                     .catch(err => console.log(err))
@@ -29,7 +33,7 @@ export function Search(props) {
                     value={form}
                 />
                 
-                <button type='submit'>Search</button>
+                <Button type='submit'>Search</Button>
             </form>
             {/* {jokes && jokes.map((item, index) => {
                 return <Joke item={item} key={index} />

@@ -1,14 +1,15 @@
 import React from 'react'
+import { Card, JokeText } from './styles';
 
 export function Joke(props) {
     console.log(props)
    
         return (
-            <div>
+            <Card>
                
                 <img src={ props.item && props.item.icon_url} alt='The Chuck' />
-                <h5> {props.item && props.item.value} </h5>
-            </div>
+                <JokeText> {props.item && props.item.value} </JokeText>
+            </Card>
         )
    
 
